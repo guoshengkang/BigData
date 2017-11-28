@@ -18,6 +18,10 @@ set hive.auto.convert.join=false;
 set hive.exec.compress.output=false;
 set mapreduce.output.fileoutputformat.compress=false;
 
+◎设置MapReduce的运行内存
+set mapreduce.map.memory.mb=2048;
+set mapreduce.map.java.opts=-Xmx1600m;
+
 ◎Xshell中进入HIVE数据库命令:
 HADOOP_USER_NAME=hadoop hive
 hive
