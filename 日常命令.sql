@@ -35,6 +35,14 @@ hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_
 31.6 G  63.1 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-22
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-23
 
+◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
+例一:插入分区表的某一分区
+load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
+overwrite into table conf_recom_user_class partition(ds='2017-11-20');
+例二:插入非分区表
+load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
+overwrite into table config_subroot_keyword_tfidf_log;
+
 ★★★【git命令集合】★★★
 git后台:http://deploy.leesrobots.com/  浏览器登录
 git客户端:SourceTree
