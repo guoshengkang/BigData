@@ -29,7 +29,7 @@ set mapreduce.map.java.opts=-Xmx1600m;
 HADOOP_USER_NAME=hadoop hive
 hive
 
-◎导出数据
+◎导出hdfs文件
 hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_age_data_all/ds=2017-11-21/* /home/kangguosheng/tmp
 
 ◎查看hive表的大小
@@ -81,6 +81,23 @@ limit 10000;
 1.overwrite是必须的关键字,不可缺少
 2.清空文件夹的文件,生成文件000000_0
 3.STORED AS TEXTFILE可以不要
+
+◎mapjoin方式执行
+把
+SELECT f.a,  f.b
+FROM A t
+JOIN B f 
+ON (f.a=t.a AND f.ftime=20110802)
+写作
+SELECT /*+ mapjoin(A)*/ f.a, f.b
+FROM A t
+JOIN B f 
+ON (f.a=t.a AND f.ftime=20110802)
+MAPJION会把小表全部读入内存中,在map阶段直接拿另外一个表的数据和内存中表数据做匹配,由于在map是进行了join操作,
+省去了reduce运行的效率也会高很多
+mapjoin还有一个很大的好处是能够进行不等连接的join操作,如果将不等条件写在where中,
+那么mapreduce过程中会进行笛卡尔积,运行效率特别低,如果使用mapjoin操作,
+在map的过程中就完成了不等值的join操作,效率会高很多。
 
 ◎后台运行HIVE脚本
 nohup hive -f kgs.sql output.out &
