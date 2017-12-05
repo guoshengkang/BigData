@@ -18,6 +18,9 @@ set hive.auto.convert.join=false;
 set hive.exec.compress.output=false;
 set mapreduce.output.fileoutputformat.compress=false;
 
+◎设置reduce的数量,即产生的结果文件数量
+set mapreduce.job.reduces=5;
+
 ◎设置MapReduce的运行内存
 set mapreduce.map.memory.mb=2048;
 set mapreduce.map.java.opts=-Xmx1600m;
