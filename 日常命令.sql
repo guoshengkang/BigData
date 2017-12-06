@@ -46,6 +46,24 @@ overwrite into table conf_recom_user_class partition(ds='2017-11-20');
 load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
 overwrite into table config_subroot_keyword_tfidf_log;
 
+DROP TABLE tmp_kgs_test_load_load;
+CREATE TABLE tmp_kgs_test_load_load
+(
+top_id          STRING COMMENT 'top_id',
+top_name        STRING COMMENT 'top_name',
+union_root      STRING COMMENT 'union_root'
+)
+comment "hotkeyword_subroot"
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+COLLECTION ITEMS TERMINATED BY '\073'
+MAP KEYS TERMINATED BY '\072'
+STORED AS TEXTFILE;
+load data local inpath '/home/kangguosheng/tmp/tmp_kgs_test_load_load.csv' 
+overwrite into table tmp_kgs_test_load_load;
+[kangguosheng@script ~]$ hadoop fs -ls /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load
+Found 1 items
+-rwxr-xr-x   2 kangguosheng supergroup  114 2017-12-06 09:37 /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load/tmp_kgs_test_load_load.csv
+
 ★★★【git命令集合】★★★
 git后台:http://deploy.leesrobots.com/  浏览器登录
 git客户端:SourceTree
