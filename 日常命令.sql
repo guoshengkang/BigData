@@ -84,10 +84,11 @@ git push
 git checkout -- file可以丢弃工作区的修改
 
 ★★★【HIVE命令集合】★★★
-◎查询输出到文件 
+◎查询输出到文件
+方式一：
 hive -e "select * from leesdata.tmp_kgs_age_data_all limit 100" >> kgs_result.csv
-
-◎insert overwrite local directory '/home/kangguosheng/tmp'
+方式二:(建议使用,格式可以设置,更友好)
+insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '\073'
 MAP KEYS TERMINATED BY '\072'
