@@ -37,6 +37,27 @@ hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_
 9.5 G  19.0 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-21
 31.6 G  63.1 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-22
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-23
+[kangguosheng@script ~]$ hadoop fs -du hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
+10106784872  20213569744  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-06
+10113643650  20227287300  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-07
+10119671301  20239342602  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-08
+10125099493  20250198986  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-09
+10132776713  20265553426  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-10
+10138240496  20276480992  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-11
+10152147667  20304295334  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-12
+[kangguosheng@script ~]$ hadoop fs -du -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
+9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-06
+9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-07
+9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-08
+9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-09
+9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-10
+9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-11
+9.5 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-12
+[kangguosheng@script ~]$ hadoop fs -du -s hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
+70888364192  141776728384  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg
+[kangguosheng@script ~]$ hadoop fs -du -s -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
+66.0 G  132.0 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg
+
 
 ◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
 例一:插入分区表的某一分区
