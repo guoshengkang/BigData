@@ -59,32 +59,6 @@ hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_
 66.0 G  132.0 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg
 
 
-◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
-例一:插入分区表的某一分区
-load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
-overwrite into table conf_recom_user_class partition(ds='2017-11-20');
-例二:插入非分区表
-load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
-overwrite into table config_subroot_keyword_tfidf_log;
-
-DROP TABLE tmp_kgs_test_load_load;
-CREATE TABLE tmp_kgs_test_load_load
-(
-top_id          STRING COMMENT 'top_id',
-top_name        STRING COMMENT 'top_name',
-union_root      STRING COMMENT 'union_root'
-)
-comment "hotkeyword_subroot"
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-COLLECTION ITEMS TERMINATED BY '\073'
-MAP KEYS TERMINATED BY '\072'
-STORED AS TEXTFILE;
-load data local inpath '/home/kangguosheng/tmp/tmp_kgs_test_load_load.csv' 
-overwrite into table tmp_kgs_test_load_load;
-[kangguosheng@script ~]$ hadoop fs -ls /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load
-Found 1 items
--rwxr-xr-x   2 kangguosheng supergroup  114 2017-12-06 09:37 /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load/tmp_kgs_test_load_load.csv
-
 ★★★【git命令集合】★★★
 git后台:http://deploy.leesrobots.com/  浏览器登录
 git客户端:SourceTree
@@ -105,6 +79,49 @@ git push
 git checkout -- file可以丢弃工作区的修改
 
 ★★★【HIVE命令集合】★★★
+◎创建表
+DROP TABLE table_name;
+CREATE TABLE if not exists table_name
+(
+signature          STRING COMMENT '短信签名',
+msg_num            INT    COMMENT '发送短信数量',
+score              FLOAT  COMMENT '得分',
+name_list          ARRAY<STRING> COMMENT '名字列表',
+msg_type_map       MAP<STRING,STRING> COMMENT '类别'
+) 
+comment "签名发送短信统计表"
+PARTITIONED BY (ds STRING) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+COLLECTION ITEMS TERMINATED BY '\073'
+MAP KEYS TERMINATED BY '\072'
+STORED AS TEXTFILE;
+
+◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
+例一:插入分区表的某一分区
+load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
+overwrite into table conf_recom_user_class partition(ds='2017-11-20');
+例二:插入非分区表
+load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
+overwrite into table config_subroot_keyword_tfidf_log;
+DROP TABLE tmp_kgs_test_load_load;
+CREATE TABLE tmp_kgs_test_load_load
+(
+top_id          STRING COMMENT 'top_id',
+top_name        STRING COMMENT 'top_name',
+union_root      STRING COMMENT 'union_root'
+)
+comment "hotkeyword_subroot"
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+COLLECTION ITEMS TERMINATED BY '\073'
+MAP KEYS TERMINATED BY '\072'
+STORED AS TEXTFILE;
+load data local inpath '/home/kangguosheng/tmp/tmp_kgs_test_load_load.csv' 
+overwrite into table tmp_kgs_test_load_load;
+[kangguosheng@script ~]$ hadoop fs -ls /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load
+Found 1 items
+-rwxr-xr-x   2 kangguosheng supergroup  114 2017-12-06 09:37 /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load/tmp_kgs_test_load_load.csv
+
+
 ◎查询输出到文件
 方式一：
 hive -e "select * from leesdata.tmp_kgs_age_data_all limit 100" >> kgs_result.csv
