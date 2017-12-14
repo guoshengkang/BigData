@@ -184,9 +184,16 @@ mysqldump  -h sh-cdb-kfmfxpp0.sql.tencentcdb.com -ubigdata -pb2i0g1d7a6t6a6 -P 6
 ◎没有注释和建表语句
 mysqldump  -h sh-cdb-kfmfxpp0.sql.tencentcdb.com -ubigdata -pb2i0g1d7a6t6a6 -P 63936 taoapp class_prod -t -c --compact --extended-insert=false > class_prod.csv
 
-◎完整的insert语句lines
+◎完整的insert语句lines(每条记录一行插入语句)
 mysqldump  -h sh-cdb-kfmfxpp0.sql.tencentcdb.com -ubigdata -pb2i0g1d7a6t6a6 -P 63936 taoapp class_prod -t --compact --extended-insert=false > class_prod.csv
 
 ◎没建表语句,但有注释
 mysqldump  -h sh-cdb-kfmfxpp0.sql.tencentcdb.com -ubigdata -pb2i0g1d7a6t6a6 -P 63936 taoapp class_prod --skip-comments -t > class_prod.csv
+
+◎mysql查询输出到本地文件,字段TAB隔开(-N:去掉输出结果中列名)
+mysql -h 594a3c818fff7.sh.cdb.myqcloud.com -udatacenter -pJHd7yb3g234 -P 15050  \
+-e "select name,content,url,type,channels_info,status,sessionid from sms_sender.sendtasks;" -N > /home/kangguosheng/tmp/mysqlheh.txt
+sed命令将TAB换为',',注意添加管道符
+mysql -h 594a3c818fff7.sh.cdb.myqcloud.com -udatacenter -pJHd7yb3g234 -P 15050  \
+-e "select name,content,url,type,channels_info,status,sessionid from sms_sender.sendtasks;" -N | sed 's/\t/,/g' > /home/kangguosheng/tmp/haha.txt
 
