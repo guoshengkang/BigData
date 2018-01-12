@@ -12,6 +12,7 @@ hadoop job  -kill job_1500621575826_0472
 ◎查看job列表:hadoop job -list
 
 ◎关闭mapjoin执行方式,转为mapreduce:
+注:当脚本运行失败时,可以尝试这样设置
 set hive.auto.convert.join=false;
 
 ◎关闭表压缩存储设置
@@ -33,26 +34,21 @@ hive
 hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_age_data_all/ds=2017-11-21/* /home/kangguosheng/tmp
 
 ◎查看hive表的大小
+#-du 统计个目录下各个文件大小
+#-h  以G为单位显示文件大小
 [kangguosheng@script ~]$ hadoop fs -du -s -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/*
 9.5 G  19.0 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-21
 31.6 G  63.1 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-22
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-11-23
+#不带参数-h,输出如下:
 [kangguosheng@script ~]$ hadoop fs -du hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
 10106784872  20213569744  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-06
 10113643650  20227287300  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-07
 10119671301  20239342602  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-08
-10125099493  20250198986  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-09
-10132776713  20265553426  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-10
-10138240496  20276480992  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-11
-10152147667  20304295334  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-12
 [kangguosheng@script ~]$ hadoop fs -du -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-06
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-07
 9.4 G  18.8 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-08
-9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-09
-9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-10
-9.4 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-11
-9.5 G  18.9 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/ds=2017-12-12
 [kangguosheng@script ~]$ hadoop fs -du -s hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
 70888364192  141776728384  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg
 [kangguosheng@script ~]$ hadoop fs -du -s -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
@@ -79,7 +75,7 @@ git push
 git checkout -- file可以丢弃工作区的修改
 
 ★★★【HIVE命令集合】★★★
-◎创建表
+◎直接创建表
 DROP TABLE table_name;
 CREATE TABLE if not exists table_name
 (
@@ -96,6 +92,23 @@ COLLECTION ITEMS TERMINATED BY '\073'
 MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE;
 
+ALTER TABLE table_name DROP PARTITION (ds<="{p3}");
+ALTER TABLE table_name DROP PARTITION (ds="{p0}");
+INSERT INTO table_name PARTITION (ds="{p0}")
+SELECT *
+FROM      
+    (SELECT *
+    FROM table_name_input
+    WHERE ds="{p0}"
+    ) t1;
+
+◎HIVE查询输出创建表
+CREATE TABLE tmp_kgs_all_uids_with_title AS
+SELECT
+DISTINCT uid
+FROM idl_limao_user_title_agg
+WHERE ds="2018-01-03";
+
 ◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
 例一:插入分区表的某一分区
 load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
@@ -103,6 +116,7 @@ overwrite into table conf_recom_user_class partition(ds='2017-11-20');
 例二:插入非分区表
 load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
 overwrite into table config_subroot_keyword_tfidf_log;
+案例解析:
 DROP TABLE tmp_kgs_test_load_load;
 CREATE TABLE tmp_kgs_test_load_load
 (
@@ -121,11 +135,11 @@ overwrite into table tmp_kgs_test_load_load;
 Found 1 items
 -rwxr-xr-x   2 kangguosheng supergroup  114 2017-12-06 09:37 /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load/tmp_kgs_test_load_load.csv
 
-
 ◎查询输出到文件
 方式一：
 hive -e "select * from leesdata.tmp_kgs_age_data_all limit 100" >> kgs_result.csv
 方式二:(建议使用,格式可以设置,更友好)
+# order by rand() 随机抽样
 insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 COLLECTION ITEMS TERMINATED BY '\073'
@@ -133,11 +147,33 @@ MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE
 select *
 from tmp_kgs_age_data_all
+order by rand()
 limit 10000;
 注:
 1.overwrite是必须的关键字,不可缺少
 2.清空文件夹的文件,生成文件000000_0
 3.STORED AS TEXTFILE可以不要
+
+◎窗口函数
+-- 分组
+NTILE(10) over(partition by label order by score desc ) ds
+-- 分组求和
+SUM(tfidf)OVER(Partition BY keyword) AS tfidf_t
+-- 分组累计求和
+SUM(tfidf)OVER(Partition BY keyword  ORDER BY ranks) AS tfidf_c
+-- 排序号
+row_number()over(Partition BY cp_id ORDER BY weight DESC) AS ranks
+
+◎array/map展开(LATERAL VIEW outer explode / LATERAL VIEW explode)
+#去掉outer关键字,则null不展开
+LATERAL VIEW explode(token) mytable AS keyword
+LATERAL VIEW explode(subroot) mytable AS union_root,weight
+例子:
+SELECT
+uid,
+keyword
+FROM tmp_kgs_all_test_user_token
+LATERAL VIEW explode(token) mytable AS keyword;
 
 ◎mapjoin方式执行
 把
@@ -169,7 +205,8 @@ nohup python -u keyword.py >>keyword.log 2>&1 &
 tail -f keyword.log
 
 nohup python crawler_main.py &
-ps aux|grep crawler_main
+ps aux|grep crawler_main 或者 ps aux|grep python
+ls -al|grep pip #列出包含pip的文件
 
 ◎列出运行的Python程序
 ps aux | grep python
