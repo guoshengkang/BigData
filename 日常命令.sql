@@ -54,6 +54,18 @@ hadoop fs -get hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/tmp_kgs_
 [kangguosheng@script ~]$ hadoop fs -du -s -h hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg/
 66.0 G  132.0 G  hdfs://172.31.6.206:8020/user/hive/warehouse/leesdata.db/idl_limao_uid_agg
 
+◎传输/查看/创建/删除文件
+-- 将目录下的所有文件传输到hdfs目录
+hadoop fs -put /root/kgstmp/output_files/* hdfs://172.31.31.115:8020/tmp/kgstmp
+-- 查看目录下的文件列表
+hadoop fs -ls hdfs://172.31.31.115:8020/tmp/kgstmp
+-- 以下两个创建目录的命令是等价的
+hadoop fs -mkdir /tmp/kgs
+hadoop fs -mkdir hdfs://172.31.31.115:8020/tmp/kgs
+-- 删除文件夹
+hadoop fs -rm -r hdfs://172.31.31.115:8020/tmp/kgs
+-- 删除文件
+hadoop fs -rm hdfs://172.31.31.115:8020/user/hive/warehouse/leesdata.db/tmp_kgs_test_load_score/derby.log
 
 ★★★【git命令集合】★★★
 git后台:http://deploy.leesrobots.com/  浏览器登录
@@ -109,13 +121,15 @@ DISTINCT uid
 FROM idl_limao_user_title_agg
 WHERE ds="2018-01-03";
 
-◎ 将csv文件导入HIVE表(注意文件编码需为utf-8)
+◎ 将文件导入HIVE表(注意文件编码需为utf-8)
 例一:插入分区表的某一分区
 load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
 overwrite into table conf_recom_user_class partition(ds='2017-11-20');
 例二:插入非分区表
 load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
 overwrite into table config_subroot_keyword_tfidf_log;
+#将文件加下的所有文件都加载到表中,加载后原hdfs目录下的文件将被移除
+load data inpath '/tmp/kgstmp/*' overwrite into table leesdata.tmp_kgs_test_load_score
 案例解析:
 DROP TABLE tmp_kgs_test_load_load;
 CREATE TABLE tmp_kgs_test_load_load
