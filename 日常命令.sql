@@ -150,9 +150,9 @@ Found 1 items
 -rwxr-xr-x   2 kangguosheng supergroup  114 2017-12-06 09:37 /user/hive/warehouse/leesdata.db/tmp_kgs_test_load_load/tmp_kgs_test_load_load.csv
 
 ◎查询输出到文件
-方式一：
+方式一:命令行输出重定向
 hive -e "select * from leesdata.tmp_kgs_age_data_all limit 100" >> kgs_result.csv
-方式二:(建议使用,格式可以设置,更友好)
+方式二:自定义格式输出(建议使用,格式可以设置,更友好)
 # order by rand() 随机抽样
 insert overwrite local directory '/home/kangguosheng/tmp'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
