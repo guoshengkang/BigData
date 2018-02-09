@@ -19,6 +19,9 @@ set hive.auto.convert.join=false;
 set hive.exec.compress.output=false;
 set mapreduce.output.fileoutputformat.compress=false;
 
+◎压缩存储时需要设置压缩格式
+SET mapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.GzipCodec;
+
 ◎设置reduce的数量,即产生的结果文件数量
 set mapreduce.job.reduces=5;
 
@@ -88,6 +91,7 @@ git checkout -- file可以丢弃工作区的修改
 
 ★★★【HIVE命令集合】★★★
 ◎直接创建表
+DROP TABLE IF EXISTS table_name;
 DROP TABLE table_name;
 CREATE TABLE if not exists table_name
 (
@@ -104,8 +108,14 @@ COLLECTION ITEMS TERMINATED BY '\073'
 MAP KEYS TERMINATED BY '\072'
 STORED AS TEXTFILE;
 
+◎删除分区
+ALTER TABLE table_name DROP IF EXISTS  PARTITION (ds="2017-12-12");
 ALTER TABLE table_name DROP PARTITION (ds<="{p3}");
 ALTER TABLE table_name DROP PARTITION (ds="{p0}");
+
+◎创建分区
+ALTER TABLE table_name ADD IF NOT EXISTS PARTITION (ds="2017-12-12");
+◎创建分区并导入数据
 INSERT INTO table_name PARTITION (ds="{p0}")
 SELECT *
 FROM      
@@ -113,6 +123,18 @@ FROM
     FROM table_name_input
     WHERE ds="{p0}"
     ) t1;
+注1:查询输出的字段数目必须和导入表的字段数目一样,对应的字段类型也必须一致(或者符合类型自动转换规则),但字段名称可以不一致
+注2:查询数据的亦可一次导入到多表的分区,例如:
+FROM ( 
+    SELECT distinct limao_id,buyer_nick,buyer_email,created 
+    FROM odl_limao_order_logs 
+	WHERE ds="2016-01-01" 
+    )  
+AS tmp_table  
+INSERT INTO TABLE idl_limao_user_main_agg PARTITION (ds='2015')
+SELECT limao_id,buyer_nick,buyer_email,created,FROM_UNIXTIME(UNIX_TIMESTAMP(),'Y-M-d') as insertd 
+INSERT INTO TABLE adl_limao_user_input PARTITION (ds='2015')
+SELECT buyer_nick 
 
 ◎HIVE查询输出创建表
 CREATE TABLE tmp_kgs_all_uids_with_title AS
@@ -122,13 +144,13 @@ FROM idl_limao_user_title_agg
 WHERE ds="2018-01-03";
 
 ◎ 将文件导入HIVE表(注意文件编码需为utf-8)
-例一:插入分区表的某一分区
+例一:导入分区表的某一分区,若分区不存在会自动创建分区
 load data local inpath '/home/kangguosheng/filetransfer/conf_recom_user_class.csv' 
 overwrite into table conf_recom_user_class partition(ds='2017-11-20');
-例二:插入非分区表
+例二:导入非分区表
 load data local inpath '/home/kangguosheng/tmp/config_subroot_keyword_tfidf_log.csv' 
 overwrite into table config_subroot_keyword_tfidf_log;
-#将文件加下的所有文件都加载到表中,加载后原hdfs目录下的文件将被移除
+#将文件加下的所有文件都加载到表中,加载后原hdfs目录下的文件将被移除(非hdfs目录,导入后不会被移除)
 load data inpath '/tmp/kgstmp/*' overwrite into table leesdata.tmp_kgs_test_load_score
 案例解析:
 DROP TABLE tmp_kgs_test_load_load;
@@ -167,6 +189,14 @@ limit 10000;
 1.overwrite是必须的关键字,不可缺少
 2.清空文件夹的文件,生成文件000000_0
 3.STORED AS TEXTFILE可以不要
+4.若不指定格式,则导出如下
+insert overwrite local directory '/home/kangguosheng/tmp/aaa.txt' select cp_id,union_root,catergory_info from idl_taobao_coupon_group_info_agg limit 10;
+10058男女装&男女装配件feature保暖category手套
+10045男女装&男女装配件category腰带
+注:
+-->','
+-->':'
+-->';'
 
 ◎窗口函数
 -- 分组
