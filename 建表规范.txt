@@ -1,0 +1,28 @@
+表名规范
+开头:ODL,IDL,ADL,config,tmp
+结尾:log,agg,dim,tmp,input
+
+
+一般建表:
+CREATE TABLE 表名(字段名 字段类型, ...) 
+comment "手机与姓名的关系依赖"
+PARTITIONED BY (分区名 分区类型) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+COLLECTION ITEMS TERMINATED BY ';'
+MAP KEYS TERMINATED BY ':'
+STORED AS TEXTFILE/STORED AS PARQUET;
+
+
+可Insert表:
+XX代表需要分Buckets字段, 
+CREATE TABLE 表名(字段名 字段类型, ...) [PARTITIONED BY (分区名 分区类型)] [CLUSTERED BY (XX) INTO X BUCKETS] STORED AS ORC;
+
+INSERT INTO TABLE 表名 [PARTITION (分区名 = '分区值')] VALUES (字段值, ...), (字段值, ...);
+
+压缩表:
+CREATE TABLE 表名 (字段名 字段类型, ...)
+[PARTITIONED BY (分区名 分区类型)]
+STORED AS PARQUET;
+
+
+
