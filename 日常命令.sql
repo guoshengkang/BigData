@@ -207,6 +207,14 @@ SUM(tfidf)OVER(Partition BY keyword) AS tfidf_t
 SUM(tfidf)OVER(Partition BY keyword  ORDER BY ranks) AS tfidf_c
 -- 排序号
 row_number()over(Partition BY cp_id ORDER BY weight DESC) AS ranks
+注:使用row_number()时,若表分区数据为空时将报错,例如
+SELECT 
+limao_nick,
+uid,
+row_number()over(partition BY limao_nick ORDER BY weigth DESC) AS ranks
+FROM ald_limao_receiver_tmp
+WHERE ds='2018-01-08';
+Error: java.lang.RuntimeException: Error in configuring object
 
 ◎array/map展开(LATERAL VIEW outer explode / LATERAL VIEW explode)
 #去掉outer关键字,则null不展开
@@ -230,7 +238,7 @@ SELECT /*+ mapjoin(A)*/ f.a, f.b
 FROM A t
 JOIN B f 
 ON (f.a=t.a AND f.ftime=20110802)
-MAPJION会把小表全部读入内存中,在map阶段直接拿另外一个表的数据和内存中表数据做匹配,由于在map是进行了join操作,
+MAPJION会把小表全部读入内存中,在map阶段直接拿另外一个表的数据和内存中表数据做匹配,由于在map时进行了join操作,
 省去了reduce运行的效率也会高很多
 mapjoin还有一个很大的好处是能够进行不等连接的join操作,如果将不等条件写在where中,
 那么mapreduce过程中会进行笛卡尔积,运行效率特别低,如果使用mapjoin操作,
