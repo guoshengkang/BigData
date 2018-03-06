@@ -70,6 +70,7 @@ hadoop fs -rm -r hdfs://172.31.31.115:8020/tmp/kgs
 -- 删除文件
 hadoop fs -rm hdfs://172.31.31.115:8020/user/hive/warehouse/leesdata.db/tmp_kgs_test_load_score/derby.log
 
+*/
 ★★★【git命令集合】★★★
 git后台:http://deploy.leesrobots.com/  浏览器登录
 git客户端:SourceTree
@@ -243,6 +244,11 @@ MAPJION会把小表全部读入内存中,在map阶段直接拿另外一个表的
 mapjoin还有一个很大的好处是能够进行不等连接的join操作,如果将不等条件写在where中,
 那么mapreduce过程中会进行笛卡尔积,运行效率特别低,如果使用mapjoin操作,
 在map的过程中就完成了不等值的join操作,效率会高很多。
+
+◎使用第三方函数
+add jar hdfs://172.31.6.206:8020/user/dc/func/hive-third-functions-2.1.1-shaded.jar;
+create temporary function array_intersect as 'cc.shanruifeng.functions.array.UDFArrayIntersect';
+SELECT SIZE(array_intersect(array("有车族","呵呵","haha","国产车"), array("有车族","大众汽车","日系车","国产车")));
 
 ◎后台运行HIVE脚本
 nohup hive -f kgs.sql output.out &
