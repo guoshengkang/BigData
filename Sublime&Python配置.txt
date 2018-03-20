@@ -1,0 +1,41 @@
+numpy
+scipy
+pandas
+matplotlib
+sklearn
+pymongo
+peewee
+pyltp 0.1.9版本
+configparser
+requests
+snownlp
+jieba
+apscheduler
+psycopg2
+
+使用豆瓣源安装Python包
+安装包
+pip install opencv_python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+安装特定版本的包
+pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+使用下载的安装包安装
+pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
+
+
+Python非官方包下载地址
+注意:不要使用pip命令安装numpy包 但是使用非官方包下载安装scikit-learn
+
+升级原来已经安装的包(-U 是升级)
+pip install -U scikit-learn
+
+sublime text 3 + python配置，完整搭建及常用插件安装
+https://www.cnblogs.com/jxldjsn/p/6034158.html
+Windows下sublime text3 配置python开发环境
+http://blog.csdn.net/lidekun9132/article/details/75647530
+Sublime Text 3安装SublimeREPL插件以及快捷键设置
+https://www.linuxidc.com/Linux/2016-06/132517.htm
+python安装包
+https://www.cnblogs.com/lxmhhy/p/6029465.html
+Visual C++ 2015 Build Tools. (百度云上有下载：visualcppbuildtools_full.exe)
+http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe.
+
