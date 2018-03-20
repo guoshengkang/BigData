@@ -36,6 +36,8 @@ Sublime Text 3安装SublimeREPL插件以及快捷键设置
 https://www.linuxidc.com/Linux/2016-06/132517.htm
 python安装包
 https://www.cnblogs.com/lxmhhy/p/6029465.html
+
 Visual C++ 2015 Build Tools. (百度云上有下载：visualcppbuildtools_full.exe)
 http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe.
-
+注:不安装visualcppbuildtools_full.exe的话,安装python的某些包可能会报如下错误,安装后重启
+error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools
