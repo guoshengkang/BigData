@@ -5,7 +5,7 @@ matplotlib
 sklearn
 pymongo
 peewee
-pyltp 0.1.9版本
+pyltp 0.1.9.1版本
 configparser
 requests
 snownlp
@@ -16,7 +16,7 @@ psycopg2
 使用豆瓣源安装Python包
 安装包
 pip install opencv_python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
-安装特定版本的包
+安装特定版本的包(注：版本号需写全)
 pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 使用下载的安装包安装
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
