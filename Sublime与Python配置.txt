@@ -14,6 +14,7 @@ apscheduler
 psycopg2
 
 使用豆瓣源安装Python包
+还有其他一些国内的源,见:https://www.cnblogs.com/sunnydou/p/5801760.html
 安装包
 pip install opencv_python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 安装特定版本的包(注：版本号需写全)
