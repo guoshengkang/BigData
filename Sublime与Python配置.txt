@@ -39,6 +39,8 @@ python安装包
 https://www.cnblogs.com/lxmhhy/p/6029465.html
 Sublime Text 3 装了Anaconda、pylinter 写Python代码出现框框的解决办法
 https://www.jianshu.com/p/d7ed1c6e2bea
+Windows带空格的路径
+"pylint_path": "C:\\'Sublime Text 3'\\data\\Packages\\Pylinter"
 
 Visual C++ 2015 Build Tools. (百度云上有下载：visualcppbuildtools_full.exe)
 http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe.
