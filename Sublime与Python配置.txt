@@ -37,6 +37,8 @@ Sublime Text 3安装SublimeREPL插件以及快捷键设置
 https://www.linuxidc.com/Linux/2016-06/132517.htm
 python安装包
 https://www.cnblogs.com/lxmhhy/p/6029465.html
+Sublime Text 3 装了Anaconda、pylinter 写Python代码出现框框的解决办法
+https://www.jianshu.com/p/d7ed1c6e2bea
 
 Visual C++ 2015 Build Tools. (百度云上有下载：visualcppbuildtools_full.exe)
 http://go.microsoft.com/fwlink/?LinkId=691126&fixForIE=.exe.
