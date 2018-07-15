@@ -23,14 +23,17 @@ pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pyp
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
 
 Sublime配置
-(1) SublimeRPEL快捷键设置
+(1) 插件安装目录
+安装“Package Control”之前，在Sublime Text 3安装目录下新建data文件夹，则之后的插件就会安装到该目录下。重启Sublime，Browser Packages就直接打开这里了。
+
+(2) SublimeRPEL快捷键设置
 "首选项"→"插件设置"→"SublimeREPL"→"Settings - User"，添加以下内容
 {
     "default_extend_env": {"PATH": "{PATH};C:\\Python27"}ui
 }
 上面路径为自己python的安装目录。
 
-(2) New Build System
+(3) New Build System
  文件 Python36.sublime-build
  { 
 "cmd": ["C:/Python36/python.exe","-u","$file"], 
