@@ -22,7 +22,23 @@ pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pyp
 使用下载的安装包安装
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
 
+Sublime配置
+(1) SublimeRPEL快捷键设置
+"首选项"→"插件设置"→"SublimeREPL"→"Settings - User"，添加以下内容
+{
+    "default_extend_env": {"PATH": "{PATH};C:\\Python27"}ui
+}
+上面路径为自己python的安装目录。
 
+(2) New Build System
+ 文件 Python36.sublime-build
+ { 
+"cmd": ["C:/Python36/python.exe","-u","$file"], 
+"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)", 
+"selector": "source.python", 
+"encoding": "cp936" 
+} 
+ 
 Python非官方包下载地址
 注意:不要使用pip命令安装numpy包 但是使用非官方包下载安装scikit-learn
 
