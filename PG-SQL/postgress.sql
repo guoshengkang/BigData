@@ -11,7 +11,7 @@ sku_id			INT,
 book_date		DATE NOT NULL,
 first_quanttiy	FLOAT,
 status			INT NOT NULL,
-gen_time 		DATE
+gen_time 		DATE DEFAULT (now())
 ); 
 
 --设置多个字段为主键
@@ -26,6 +26,13 @@ feature_value	FLOAT,
 PRIMARY KEY (warehouse_id,id,sale_date,feature_name,feature_type)
 ); 
 
+create table ios_product_feature
+( 
+feature_name	varchar,
+feature_type	INT DEFAULT 0,
+description		varchar,
+PRIMARY KEY (feature_name)
+); 
 
 ★★★★★★【更新表】★★★★★★
 (1) 根据where语句查询待更新的数据记录
@@ -75,7 +82,9 @@ WHERE t1.store_id=1
 GROUP BY t1.store_id,t2.product_id, t2.skc_id,t2.sku_id
 (2)
 INSERT INTO "public"."ios_base_organization" ("organization_id", "industry_id", "name", "logo_icon", "gen_time", "status") 
-VALUES ('1', '1', 'KK馆', '1', '2018-05-07 12:00:00', '1');
+VALUES 
+('1', '1', 'KK馆1', '1', '2018-05-07 12:00:00', '1'),
+('2', '2', 'KK馆2', '2', '2018-05-07 12:00:00', '2');
 
 ★★★★★★【删除数据】★★★★★★
 DELETE from ios_sale_order_line
@@ -183,6 +192,5 @@ cross join
 	(SELECT DISTINCT feature_name
 	FROM ios_product_feature_value
 	) t2
-
 
 
