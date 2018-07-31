@@ -98,12 +98,13 @@ On t1."单据编号"=t2.order_code);
 (1) varchar to date: DATE(t1.date) AS work_day, CAST(销售日期 AS date)
 (2) 转成字符串类型: CAST(tiaoma AS VARCHAR), CAST(lingshoujia AS FLOAT), 
 CAST(t2.skc_id AS INT), CAST(t2.week_num AS INTEGER)
-(3) 获取当前时间戳: NOW() AS gen_time
-(4) 获取当天日期
+(3) 强制类型转换 book_date::DATE
+(4) 获取当前时间戳: NOW() AS gen_time
+(5) 获取当天日期
 SELECT CURRENT_DATE AS today,CAST(CURRENT_DATE AS TIMESTAMP) As gen_time
-(5) 字段连接: CONCAT(parent_id,'_',category_id)
-(6) 多个字段连接: concat_ws('_',t1.classfication_level,t3."name",t2."name")
-(7) 保留小数位数: round(CAST("金额"/"数量" AS numeric ),1)
+(6) 字段连接: CONCAT(parent_id,'_',category_id)
+(7) 多个字段连接: concat_ws('_',t1.classfication_level,t3."name",t2."name")
+(8) 保留小数位数: round(CAST("金额"/"数量" AS numeric ),1)
 
 ★★★★★★【字段信息提取】★★★★★★
 (1) 从date类型中获取月份: EXTRACT(MONTH from t1.work_day)
