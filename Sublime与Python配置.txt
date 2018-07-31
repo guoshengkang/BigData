@@ -13,6 +13,11 @@ jieba
 apscheduler
 psycopg2
 
+Exception类的继承:
+class dataNotFound(Exception):
+    def __init__(self, msg="data not found!!!"):
+        print(msg)
+
 使用豆瓣源安装Python包
 还有其他一些国内的源,见:https://www.cnblogs.com/sunnydou/p/5801760.html
 安装包
