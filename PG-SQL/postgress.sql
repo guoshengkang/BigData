@@ -149,13 +149,14 @@ GROUP BY t1.id HAVING count(1)>=85
 row_number() over(partition by classfication_level ORDER BY days DESC) AS rank
 应用例子:随机取每个类别的10条记录
 SELECT
-tb.*
+tb.* into tmp_ios_optimization_demand_classification
 FROM 
-	(SELECT
-	ta.*,
-	row_number() over(partition by demand_class ORDER BY random() DESC) AS rank
-	FROM ios_optimization_demand_classification AS ta
-	) AS tb
+(SELECT
+ta.*,
+row_number() over(partition by demand_class ORDER BY random() DESC) AS rank
+FROM ios_optimization_demand_classification AS ta
+WHERE warehouse_id=1
+) AS tb
 WHERE rank<=10
 ORDER BY demand_class;
 (2)GROUP BY ** having **
