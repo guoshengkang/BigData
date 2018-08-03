@@ -147,6 +147,17 @@ GROUP BY t1.id HAVING count(1)>=85
 ★★★★★★【函数调用】★★★★★★
 (1) row_number
 row_number() over(partition by classfication_level ORDER BY days DESC) AS rank
+应用例子:随机取每个类别的10条记录
+SELECT
+tb.*
+FROM 
+	(SELECT
+	ta.*,
+	row_number() over(partition by demand_class ORDER BY random() DESC) AS rank
+	FROM ios_optimization_demand_classification AS ta
+	) AS tb
+WHERE rank<=10
+ORDER BY demand_class;
 (2)GROUP BY ** having **
 SELECT id,count(1) days into tmp_kgs_selected_id_50days
 FROM tmp_kgs_all_data
@@ -193,5 +204,3 @@ cross join
 	(SELECT DISTINCT feature_name
 	FROM ios_product_feature_value
 	) t2
-
-
