@@ -27,6 +27,11 @@ pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pyp
 使用下载的安装包安装
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
 
+插件安装目录:
+插件默认安装的位置是AppData的目录【C:\Users\用户名\AppData\Roaming\Sublime Text 3\Packages】,关闭Sublime，找到它的安装路径，新建一个Data文件夹，把C盘目录下的Packages文件夹删除掉，再重新打开Sublime ，References-》 Browser Packages 就发现打开的文件夹就是我们新建的Data文件下的Packages了，
+
+再安装插件的时候就都会安装在这个路径下。
+
 Sublime配置
 (1) 插件安装目录
 安装“Package Control”之前，在Sublime Text 3安装目录下新建data文件夹，则之后的插件就会安装到该目录下。重启Sublime，Browser Packages就直接打开这里了。
