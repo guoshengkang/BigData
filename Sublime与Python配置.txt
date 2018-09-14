@@ -12,6 +12,7 @@ snownlp
 jieba
 apscheduler
 psycopg2
+tensorflow
 
 Exception类的继承:
 class dataNotFound(Exception):
@@ -22,6 +23,7 @@ class dataNotFound(Exception):
 还有其他一些国内的源,见:https://www.cnblogs.com/sunnydou/p/5801760.html
 安装包
 pip install opencv_python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+pip install tensorflow -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 安装特定版本的包(注：版本号需写全)
 pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 使用下载的安装包安装
@@ -52,12 +54,16 @@ Sublime配置
 "selector": "source.python", 
 "encoding": "cp936" 
 } 
- 
+
+(4)设置环境变量
+在cmd下输入：path=%path%;C:\Python27，接着按"Enter"回车键。
+
 Python非官方包下载地址
 注意:不要使用pip命令安装numpy包 但是使用非官方包下载安装scikit-learn
 
 升级原来已经安装的包(-U 是升级)
 pip install -U scikit-learn
+pip list # 查看已安装的python包
 
 sublime text 3 + python配置，完整搭建及常用插件安装
 https://www.cnblogs.com/jxldjsn/p/6034158.html
