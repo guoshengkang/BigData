@@ -90,3 +90,7 @@ pyinstaller yourprogram.py
 Ref. 
 [1] http://www.pyinstaller.org/
 [2] https://www.cnblogs.com/maoxianfei/p/6005365.html
+
+Jupyter Notebook 快速入门
+http://www.cnblogs.com/nxld/p/6566380.html
+
