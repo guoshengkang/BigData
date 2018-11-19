@@ -83,3 +83,10 @@ error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ 
 
 Windows下Pytorch的安装
 https://blog.csdn.net/manong_wxd/article/details/78583098
+
+exe程序打包
+pip install -i https://pypi.douban.com/simple/ pyinstaller（豆瓣源）
+pyinstaller yourprogram.py
+Ref. 
+[1] http://www.pyinstaller.org/
+[2] https://www.cnblogs.com/maoxianfei/p/6005365.html
