@@ -1,0 +1,28 @@
+﻿碰到新问题时首先去查维基百科
+英文：https://en.wikipedia.org
+中文：https://zh.wikipedia.org
+认真读懂来龙去脉,相信自己可以坑下去，需要付上足够的时间代价
+
+
+找代码实现的方法
+1. 读论文，论文中一般会公布实现的代码；
+2. 用google在github上直接搜索，比如搜索关键词：github GBRBM 或者guthub S-BPM
+
+youtube视频下载网址：https://y2mate.com/zh-cn
+
+金句欣赏：
+This separation of logical model and its implementation increases the flexibility of business processes management, as revealed by several academic and industrial S-BPM projects.
+
+the structuring of processes models as interacting entities facilitates coordinating business process management activities.
+
+A precise and complete definition of the semantics of all S-BPM modeling elements can be found in the attachment of (Fleischmann et al. 2012a). 
+
+All services are triggered in a synchronous way, i.e. a subject only reaches its subsequent state once all services called in a certain state have been completed.
+
+As already shown subjects can execute three different types of actions: Sending messages to other subjects, 
+receiving messages from other subjects, and performing local actions on business objects.
+
+The creation of a process instance is not only caused by humans. It can also be caused by certain data states, a timer or by instances of other processes belonging to the same process network.
+
+.. of particular/vital/outstanding/major/equal importance ..
+
