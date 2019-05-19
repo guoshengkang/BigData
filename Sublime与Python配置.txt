@@ -42,7 +42,7 @@ Package Control的安装：https://packagecontrol.io/installation
 }
 上面路径C:\\Python27为自己python的安装目录。
 
-(3) New Build System
+(3) 新建编译器：Tools——>Build System——>New Build System
  文件 Python36.sublime-build
  { 
 "cmd": ["C:/Python36/python.exe","-u","$file"], 
@@ -50,6 +50,7 @@ Package Control的安装：https://packagecontrol.io/installation
 "selector": "source.python", 
 "encoding": "cp936" 
 } 
+文件存放路径：C:\Sublime Text 3\Data\Packages\User\Python37.sublime-build
 
 (4)设置环境变量
 在cmd下输入：path=%path%;C:\Python27，接着按"Enter"回车键。
