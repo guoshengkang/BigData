@@ -15,11 +15,11 @@ https://app.grammarly.com/
 youtube视频下载网址：https://y2mate.com/zh-cn
 
 # 文献资源查找与下载
-+ http://tool.yovisun.com/scihub/下论文网站
-+ http://gen.lib.rus.ec/可以下书
-+ https://www.storkapp.me/ref=50560注册一下追踪最新文献,文献会自动发到邮箱（经测试，推荐的论文不大准确）
-+ http://pqdt.bjzhongke.com.cn/国外学位论文
-+ 这个网站可以找到一些外文电子专著 https://b-ok.cc/
++ http://tool.yovisun.com/scihub/ 下论文网站
++ http://gen.lib.rus.ec/ 可以下书
++ https://www.storkapp.me/ref=50560 注册一下追踪最新文献,文献会自动发到邮箱（经测试，推荐的论文不大准确）
++ http://pqdt.bjzhongke.com.cn/ 国外学位论文
++ https://b-ok.cc/ 这个网站可以找到一些外文电子专著
 
 # How to write a paper
 
