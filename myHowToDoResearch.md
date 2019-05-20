@@ -1,4 +1,4 @@
-﻿碰到新问题时首先去查维基百科
+# 碰到新问题时首先去查维基百科
 英文：https://en.wikipedia.org
 中文：https://zh.wikipedia.org
 认真读懂来龙去脉,相信自己可以啃下去，需要付上足够的时间代价
@@ -8,13 +8,13 @@
 # 论文语法检查 
 https://app.grammarly.com/
 
-找代码实现的方法
+# 找代码实现的方法
 1. 读论文，论文中一般会公布实现的代码；
 2. 用google在github上直接搜索，比如搜索关键词：github GBRBM 或者guthub S-BPM
 
 youtube视频下载网址：https://y2mate.com/zh-cn
 
-#文献资源查找与下载
+# 文献资源查找与下载
 + http://tool.yovisun.com/scihub/下论文网站
 + http://gen.lib.rus.ec/可以下书
 + https://www.storkapp.me/ref=50560注册一下追踪最新文献,文献会自动发到邮箱（经测试，推荐的论文不大准确）
@@ -23,9 +23,9 @@ youtube视频下载网址：https://y2mate.com/zh-cn
 
 # How to write a paper
 
-##Abstract
+## Abstract
 
-##Introduction
+## Introduction
 + This separation of logical model and its implementation increases the flexibility of business processes management, as revealed by several academic and industrial S-BPM projects.
 
 + the structuring of processes models as interacting entities facilitates coordinating business process management activities.
@@ -38,7 +38,7 @@ receiving messages from other subjects, and performing local actions on business
 
 + .. of particular/vital/outstanding/major/equal importance ..
 
-##Acknowledgements
+## Acknowledgements
 
 + Acknowledgements. We thank our students ** **, ** **, ** **, and ** ** who contributed to the prototype development as part of an ISE student lab project in the winter term of 2016/17.
 
