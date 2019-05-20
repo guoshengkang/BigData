@@ -1,11 +1,10 @@
 # 碰到新问题时首先去查维基百科
-英文：https://en.wikipedia.org
-中文：https://zh.wikipedia.org
++ 英文：https://en.wikipedia.org
++ 中文：https://zh.wikipedia.org
 认真读懂来龙去脉,相信自己可以啃下去，需要付上足够的时间代价
 
-任何时候投文章前，一定先打印出来从头到尾看一遍！！！
-
 # 论文语法检查 
+任何时候投文章前，一定先打印出来从头到尾看一遍！！！
 https://app.grammarly.com/
 
 # 找代码实现的方法
