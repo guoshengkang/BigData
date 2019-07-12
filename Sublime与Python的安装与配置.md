@@ -26,7 +26,7 @@ pip list # 查看已安装的python包
 安装“Package Control”之前，在Sublime Text 3安装目录下新建data文件夹，则之后的插件就会安装到该目录下。重启Sublime，点击References --> Browser Packages就直接打开插件的安装目录。否则，插件的默认安装目录为【C:\Users\用户名\AppData\Roaming\Sublime Text 3\Packages】  
 Package Control的安装：https://packagecontrol.io/installation
 
-**(2) SublimeRPEL快捷键设置（Python命令行）**  
+**(2) SublimeRPEL快捷键设置（Python命令行）（注：需先安装SublimeREPL插件）**  
 "Preferences"→"Package Settings"→"SublimeREPL"→"Settings - User"，添加以下内容
 ```python
 {
@@ -47,7 +47,7 @@ Package Control的安装：https://packagecontrol.io/installation
 ```
 保存为Python36.sublime-build文件，存放路径默认为：C:\Sublime Text 3\Data\Packages\User\Python36.sublime-build
 
-**(4) 设置Python模板**  
+**(4) 设置Python模板（注：需先安装SublimeTmpl插件）**  
 "Preferences"→"Package Settings"→"SublimeTmpl"→"Settings - User"，添加以下内容
 ```python
 {  
