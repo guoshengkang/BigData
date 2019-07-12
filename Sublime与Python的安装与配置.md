@@ -1,6 +1,8 @@
 #Sublime与Python的安装与配置
+
 ##Python的安装
 [Python官网下载](https://www.python.org/ "Python官网")安装即可,假设安装目录为：C:/Python36
+
 ##Python包的安装
 安装命令：pip install package_name  
 **注意**：若没有在环境变量path中添加路径C:\Python36\Scripts的话，使用pip命令时，需先进入该目录
@@ -14,6 +16,7 @@
 使用下载的安装包安装，首先进入下载文件所在的目录，然后输入安装命令  
 例如：cd C:\Python36\Scripts  
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
+
 ##Sublime的安装
 [Sublime官网下载](http://www.sublimetext.com/ "Sublime官网")安装即可
 
@@ -24,11 +27,11 @@ Package Control的安装：https://packagecontrol.io/installation
 
 (2) SublimeRPEL快捷键设置（Python命令行）
 "Preferences"→"Package Settings"→"SublimeREPL"→"Settings - User"，添加以下内容
-​```python
+```python
 {
     "default_extend_env": {"PATH": "{PATH};C:\\Python36"}
 }
-​```
+```
 上面路径C:\\Python36为Python的安装目录。
 
 ## Python常用包名称
