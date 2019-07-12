@@ -1,6 +1,6 @@
 # Sublime与Python的安装与配置
 ## Python的安装
-[Python官网下载](https://www.python.org/ "Python官网")安装即可,假设安装目录为：C:/Python36
+[Python官网下载](https://www.python.org/ "Python官网")安装即可，假设安装目录为：C:/Python36
 ## Python包的安装
 安装命令：pip install package_name  
 **注意**：若没有在环境变量path中添加路径C:\Python36\Scripts的话，使用pip命令时，需先进入该目录
