@@ -44,7 +44,7 @@ Package Control的安装：https://packagecontrol.io/installation
 "selector": "source.python", 
 "encoding": "cp936" 
 }
-```python
+```
 保存为Python37.sublime-build文件，存放路径默认为：C:\Sublime Text 3\Data\Packages\User\Python37.sublime-build
 **(3) 设置Python模板**  
 "Preferences"→"Package Settings"→"SublimeTmpl"→"Settings - User"，添加以下内容
