@@ -23,8 +23,16 @@ pip list # 查看已安装的python包
 
 ## Sublime的配置
 **(1) 设置插件安装目录及安装Package Control**  
++ 新建插件安装目录  
 安装“Package Control”之前，在Sublime Text 3安装目录下新建data文件夹，则之后的插件就会安装到该目录下。重启Sublime，点击References --> Browser Packages就直接打开插件的安装目录。否则，插件的默认安装目录为【C:\Users\用户名\AppData\Roaming\Sublime Text 3\Packages】  
++ 安装  
 Package Control的安装：https://packagecontrol.io/installation
+从菜单 View - Show Console 或者 ctrl + ~ 快捷键，调出 console。将以下 Python 代码粘贴进去并 enter 执行，不出意外即完成安装。
+```
+import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+```python
++ 安装插件  
+快捷键 Ctrl+Shift+P（菜单 – Tools – Command Paletter），输入 install 选中Install Package并回车，输入或选择你需要的插件回车就安装了（注意左下角的小文字变化，会提示安装成功）。
 
 **(2) SublimeRPEL快捷键设置（Python命令行）（注：需先安装SublimeREPL插件）**  
 "Preferences"→"Package Settings"→"SublimeREPL"→"Settings - User"，添加以下内容
