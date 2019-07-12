@@ -15,6 +15,9 @@
 例如：cd C:\Python36\Scripts  
 pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
 
+升级原来已经安装的包(-U 是升级)  
+pip install -U scikit-learn  
+pip list # 查看已安装的python包  
 ## Sublime的安装
 [Sublime官网下载](http://www.sublimetext.com/ "Sublime官网")安装即可
 
@@ -23,7 +26,7 @@ pip install scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl
 安装“Package Control”之前，在Sublime Text 3安装目录下新建data文件夹，则之后的插件就会安装到该目录下。重启Sublime，点击References --> Browser Packages就直接打开插件的安装目录。否则，插件的默认安装目录为【C:\Users\用户名\AppData\Roaming\Sublime Text 3\Packages】  
 Package Control的安装：https://packagecontrol.io/installation
 
-(2) SublimeRPEL快捷键设置（Python命令行）
+**(2) SublimeRPEL快捷键设置（Python命令行）**  
 "Preferences"→"Package Settings"→"SublimeREPL"→"Settings - User"，添加以下内容
 ```python
 {
@@ -32,6 +35,54 @@ Package Control的安装：https://packagecontrol.io/installation
 ```
 上面路径C:\\Python36为Python的安装目录。
 
+**(3) 新建编译器：Tools——>Build System——>New Build System**  
+ 文件 Python36.sublime-build
+```python
+ { 
+"cmd": ["C:/Python36/python.exe","-u","$file"], 
+"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)", 
+"selector": "source.python", 
+"encoding": "cp936" 
+}
+```python
+保存为Python37.sublime-build文件，存放路径默认为：C:\Sublime Text 3\Data\Packages\User\Python37.sublime-build
+**(3) 设置Python模板**  
+"Preferences"→"Package Settings"→"SublimeTmpl"→"Settings - User"，添加以下内容
+```python
+{  
+	"disable_keymap_actions": false, // "all"; "html,css"  
+	"date_format" : "%Y-%m-%d %H:%M:%S",  
+	"attr": {  
+	    "author": "Guosheng Kang",  
+	    "email": "guoshengkang@gmail.com",  
+	    "link": "https://guoshengkang.github.io"  
+	}  
+}
+```
+"Preferences"→"Package Settings"→"SublimeTmpl"→"Key Bindings - User"，添加以下内容
+```python
+[   
+    {  
+        "caption": "Tmpl: Create python", "command": "sublime_tmpl",  
+        "keys": ["ctrl+alt+p"], "args": {"type": "python"}  
+    },  
+]
+```
+意思是ctrl+alt+p就可以创建一个新的Python模板  
+Python的模板文件的路径为：C:\Sublime Text 3\Data\Packages\SublimeTmpl\templates\python.tmpl可自行编辑
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date    : ${date}
+# @Author  : ${author} (${email})
+# @Link    : ${link}
+# @Version : \$Id\$
+
+${1:import os}
+${2:import sys}
+$0
+```
 ## Python常用包名称
 + numpy
 + scipy
