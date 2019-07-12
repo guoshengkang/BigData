@@ -1,0 +1,23 @@
+windows下gcc的安装和使用
+MinGW是指只用自由软件来生成纯粹的Win32可执行文件的编译环境，它是Minimalist GNU on Windows的略称。
+
+　　实际上 MinGW 并不是一个 单纯的C/C++ 编译器，而是一套 GNU 工具集合。除开 GCC 以外，MinGW 还包含有一些其他的 GNU 程序开发工具 (比如 gawk bison 等等)。 
+　　开发 MinGW 是为了那些不喜欢工作在 Linux(FreeBSD) 操作系统而留在 Windows 的人提供一套符合 GNU 的 GNU 工作环境。 
+　　所以，使用 MinGW 我们就可以像在 Linux 下一样使用 GNU 程序开发工具。 
+　　GCC 就是 MinGW 的核心所在，GCC 是一套支持众多计算机程序语言的编译系统，而且在语言标准的实现上是最接近于标准的。并且 GCC几乎可以移植到目前所有可用的计算机平台。（我的电脑上就还装有 DevKitPro，里面包含 GCC 的 ARM(for GBA/DS/GP32)和 MIPS(for PSP) 版本。） 
+　　GCC 本身不像 VC 那样拥有IDE 界面（在 Windows 上也存在 Dev C++ 之类的支持 MinGW 编译器的 IDE）。源代码编辑你可以选用任何你喜欢的文本编辑器（据说微软的开发人员包括 VC 的开发都不用 VC 所带的 IDE 编辑器，而是选用 GNU的 VIM 编辑器）。然后使用 make 等工具来进行软件项目的编译、链接、打包乃至发布。而像 cvs(svn) 源代码版本控制工具可以让世界上任何一个角落的人都可以参与到软件项目中来。
+
+2.下载MinGW 
+一种方法是到Sourceforge下载一个MinGW-2.0.0-3.exe。但是配置的时候电脑上安装了codeblocks，已经自带了MinGW。
+
+3.环境变量的配置，以下三个步骤 
+在（系统属性－－>高级－－>环境变量－－>系统变量 中）（以下目录都根据自己的电脑MinGW所在位置不同而改变，我的电脑是以下这种）
+
+第一步：在PATH的值中加入“C:\MinGW\bin”。这是寻找gcc编译器的路径。如果PATH中还有其他内容，需要用英文状态下分号进行分割
+
+第二步：新建LIBRARY_PATH变量，在其值中加入“C:\MinGW\lib”。这是标准库存放的路径。
+
+第三步：新建C_INCLUDE_PATH变量，在其值中加入“C:\MinGW\include”。这是Include查找头文件的路径。
+
+4.验证gcc是否正常运行 
+在cmd控制台窗口下面，输入gcc -v。若已经成功安装好，会显示gcc的版本信息。
