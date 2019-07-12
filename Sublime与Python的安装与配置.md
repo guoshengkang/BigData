@@ -33,13 +33,14 @@ import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe0
 + **安装插件**  
 快捷键 Ctrl+Shift+P（菜单 – Tools – Command Paletter），输入 install 选中Install Package并回车，输入或选择你需要的插件回车就安装了（注意左下角的小文字变化，会提示安装成功）。
 + **常用插件**  
- - Package Control：管理插件的插件，前面已安装
- - SublimeCodeIntel: 代码提示插件，可根据是python、java等自动代码提示
- - SideBarEnhancements: 扩展了侧边栏中菜单选项的数量，从而提升你的工作效率
- - SublimeTmpl：新建文件模板插件，可以支持多种语言例如Python、PHP等
- - Terminal：打开一个命令窗口，用于各种命令操作
- - AutoPep8：python开发规范pep8
- - Anaconda：自动匹配关键字等实用功能，有效提高开发效率
+	 - Package Control：管理插件的插件，前面已安装
+	 - SublimeCodeIntel: 代码提示插件，可根据是python、java等自动代码提示
+	 - SideBarEnhancements: 扩展了侧边栏中菜单选项的数量，从而提升你的工作效率
+	 - SublimeTmpl：新建文件模板插件，可以支持多种语言例如Python、PHP等
+	 - Terminal：打开一个命令窗口，用于各种命令操作
+	 - AutoPep8：python开发规范pep8
+	 - Anaconda：自动匹配关键字等实用功能，有效提高开发效率
+ 
 **(2) SublimeRPEL快捷键设置（Python命令行）（注：需先安装SublimeREPL插件）**  
 "Preferences"→"Package Settings"→"SublimeREPL"→"Settings - User"，添加以下内容
 ```python
