@@ -5,7 +5,7 @@
 安装命令：pip install package_name  
 **注意**：若没有在环境变量path中添加路径C:\Python36\Scripts的话，使用pip命令时，需先进入该目录
 
-使用豆瓣源安装Python包，其他一些国内的源,见:<https://www.cnblogs.com/sunnydou/p/5801760.html>   
+使用豆瓣源安装Python包，其他一些国内的源,见：<https://www.cnblogs.com/sunnydou/p/5801760.html>   
 例如：pip install opencv_python -i http://pypi.douban.com/simple --trusted-host
  
 安装特定版本的包(注：版本号需写全)  
