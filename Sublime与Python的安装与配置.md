@@ -1,5 +1,4 @@
-#Sublime与Python的安装与配置
-
+# Sublime与Python的安装与配置
 ##Python的安装
 [Python官网下载](https://www.python.org/ "Python官网")安装即可,假设安装目录为：C:/Python36
 
