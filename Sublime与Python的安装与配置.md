@@ -2,8 +2,10 @@
 ## Python的安装
 [Python官网下载](https://www.python.org/ "Python官网")安装即可，假设安装目录为：C:/Python36
 
-Anaconda installer archive：
+**Anaconda installer archive**：
+
 地址1： https://repo.continuum.io/archive/
+
 地址2：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/
 
 ## Python包的安装
