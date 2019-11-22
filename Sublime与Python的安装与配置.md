@@ -16,7 +16,7 @@
 例如：pip install opencv_python -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
  
 安装特定版本的包(注：版本号需写全)  
-例如：pip install "pyltp==0.1.9.1" -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+例如：pip install "tensorflow==1.14.0" -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
 
 使用下载的安装包安装，首先进入下载文件所在的目录，然后输入安装命令  
 例如：cd C:\Python36\Scripts  
