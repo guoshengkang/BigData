@@ -8,6 +8,8 @@
 任何时候投文章前，一定先打印出来从头到尾看一遍！！！
 https://app.grammarly.com/
 
+烧钱的润色服务：<https://www.aje.cn/>
+
 # 找代码实现的方法
 1. 读论文，论文中一般会公布实现的代码；
 2. 用google在github上直接搜索，比如搜索关键词：github GBRBM 或者guthub S-BPM
