@@ -27,33 +27,28 @@ youtube视频下载网址：https://y2mate.com/zh-cn
 
 ## Abstract
 
+
 ## Introduction
-+ This separation of logical model and its implementation increases the flexibility of business processes management, as revealed by several academic and industrial S-BPM projects.
+1. This separation of logical model and its implementation increases the flexibility of business processes management, as revealed by several academic and industrial S-BPM projects.
 
-+ the structuring of processes models as interacting entities facilitates coordinating business process management activities.
-+ A precise and complete definition of the semantics of all S-BPM modeling elements can be found in the attachment of (Fleischmann et al. 2012a). 
-+ All services are triggered in a synchronous way, i.e. a subject only reaches its subsequent state once all services called in a certain state have been completed.
-+ As already shown subjects can execute three different types of actions: Sending messages to other subjects, 
+1. the structuring of processes models as interacting entities facilitates coordinating business process management activities.
+1. A precise and complete definition of the semantics of all S-BPM modeling elements can be found in the attachment of (Fleischmann et al. 2012a). 
+1. All services are triggered in a synchronous way, i.e. a subject only reaches its subsequent state once all services called in a certain state have been completed.
+1. As already shown subjects can execute three different types of actions: Sending messages to other subjects, 
 receiving messages from other subjects, and performing local actions on business objects.
+1. The creation of a process instance is not only caused by humans. It can also be caused by certain data states, a timer or by instances of other processes belonging to the same process network.
+1. .. of particular/vital/outstanding/major/equal importance ..
 
-+ The creation of a process instance is not only caused by humans. It can also be caused by certain data states, a timer or by instances of other processes belonging to the same process network.
-
-+ .. of particular/vital/outstanding/major/equal importance ..
+## Body
+1. The diagram on the right hand side of Figure 2 shows the results from applying a natural language processor to the natural language description illustrated on the top left hand side of the figure.
 
 ## Acknowledgements
 
-+ Acknowledgements. We thank our students ** **, ** **, ** **, and ** ** who contributed to the prototype development as part of an ISE student lab project in the winter term of 2016/17.
-
-+ Acknowledgement. This research was partially supported by Key Research and Development Project of Zhejiang Province (No. 2015C01027, No. 2015C01034, No. 2015C01029, and No. 2017C01013), Natural Science Foundation of Zhejiang Province (No. LY17F020014) and Major Science and Technology Innovation Project of Hangzhou (No. 20152011A03).
-
-+ Acknowledgement. The work described in this paper was supported by the National Key Research and Development Program (2016YFB1000101), the National Natural Science Foundation of China (61472338), and the Pearl River S&T Nova Program of Guangzhou (201710010046). ** ** is the corresponding author of this paper.
-
-+ Acknowledgments. The authors would like to thank Microsoft Azure and NVIDIA for resource access, and VMWare for their technical feedback. We would also like to thank Venkatesh Babu and Avishek from the VAL lab at IISc for their inputs on YOLO.
-
-+ Acknowledgments. We thank ** ** and ** ** for their helpful comments on the paper.
-
-+ Acknowledgements. We would like to thank ** ** for his contributions during the early stages of the project, ** ** for his support during some of our experiments, and Amazon Web Services for providing free access to their services.
-
-+ Acknowledgments. This work is supported by China Scholarship Council, Australia Research Council Future Fellowship and Discovery Project Grants. We thank ** **, ** ** and ** ** for their valuable suggestions.
-
-+ The authors thank the anonymous reviewers for their valuable feedback and comments. This work is supported by Chinese National KeyR&D Program, under grant number: 2017YFB1400604, 2018YFC0831402, and Hunan Provincial Natural Science Foundation of China, under grant number: 2018JJ2139.
+1. Acknowledgements. We thank our students ** **, ** **, ** **, and ** ** who contributed to the prototype development as part of an ISE student lab project in the winter term of 2016/17.
+1. Acknowledgement. This research was partially supported by Key Research and Development Project of Zhejiang Province (No. 2015C01027, No. 2015C01034, No. 2015C01029, and No. 2017C01013), Natural Science Foundation of Zhejiang Province (No. LY17F020014) and Major Science and Technology Innovation Project of Hangzhou (No. 20152011A03).
+1. Acknowledgement. The work described in this paper was supported by the National Key Research and Development Program (2016YFB1000101), the National Natural Science Foundation of China (61472338), and the Pearl River S&T Nova Program of Guangzhou (201710010046). ** ** is the corresponding author of this paper.
+1. Acknowledgments. The authors would like to thank Microsoft Azure and NVIDIA for resource access, and VMWare for their technical feedback. We would also like to thank Venkatesh Babu and Avishek from the VAL lab at IISc for their inputs on YOLO.
+1. Acknowledgments. We thank ** ** and ** ** for their helpful comments on the paper.
+1. Acknowledgements. We would like to thank ** ** for his contributions during the early stages of the project, ** ** for his support during some of our experiments, and Amazon Web Services for providing free access to their services.
+1. Acknowledgments. This work is supported by China Scholarship Council, Australia Research Council Future Fellowship and Discovery Project Grants. We thank ** **, ** ** and ** ** for their valuable suggestions.
+1. The authors thank the anonymous reviewers for their valuable feedback and comments. This work is supported by Chinese National KeyR&D Program, under grant number: 2017YFB1400604, 2018YFC0831402, and Hunan Provincial Natural Science Foundation of China, under grant number: 2018JJ2139.
