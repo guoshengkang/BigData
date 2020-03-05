@@ -41,6 +41,7 @@ receiving messages from other subjects, and performing local actions on business
 
 ## Body
 1. The diagram on the right hand side of Figure 2 shows the results from applying a natural language processor to the natural language description illustrated on the top left hand side of the figure.
+1. The action and object components of the functional semantics are indicated by underlined texts, and the user inputs are depicted by bolded texts.
 
 ## Acknowledgements
 
