@@ -23,6 +23,8 @@ youtube视频下载网址：https://y2mate.com/zh-cn
 + http://pqdt.bjzhongke.com.cn/ 国外学位论文
 + https://b-ok.cc/ 这个网站可以找到一些外文电子专著
 
++ https://www.xiaoso.net/ 微盘资源搜索引擎
+
 # How to write a paper
 
 ## Abstract
