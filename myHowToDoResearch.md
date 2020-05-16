@@ -12,7 +12,7 @@ https://app.grammarly.com/
 
 # 找代码实现的方法
 1. 读论文，论文中一般会公布实现的代码；
-2. 用google在github上直接搜索，比如搜索关键词：github GBRBM 或者guthub S-BPM
+2. 用google在github上直接搜索，比如搜索关键词：github GBRBM 或者github S-BPM
 
 youtube视频下载网址：https://y2mate.com/zh-cn
 
@@ -22,7 +22,6 @@ youtube视频下载网址：https://y2mate.com/zh-cn
 + https://www.storkapp.me/ref=50560 注册一下追踪最新文献,文献会自动发到邮箱（经测试，推荐的论文不大准确）
 + http://pqdt.bjzhongke.com.cn/ 国外学位论文
 + https://b-ok.cc/ 这个网站可以找到一些外文电子专著
-
 + https://www.xiaoso.net/ 微盘资源搜索引擎
 
 # How to write a paper
