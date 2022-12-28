@@ -15,5 +15,5 @@
 > slmgr /skms yy.us.to  
 > slmgr /ato  
 - 各版本秘钥
- - 专业版：VK7JG-NPHTM-C97JM-9MPGT-3V66T
- - 专业版：VK7JG-NPHTM-C97JM-9MPGT-3V66T
+  - 专业版：VK7JG-NPHTM-C97JM-9MPGT-3V66T
+  - 企业版：3KHY7-WNT83-DGQKR-F7HPR-844BM
