@@ -10,14 +10,9 @@
 
 ## Win11全版本秘钥
 - Win+R 输入cmd打开命令提示符
-- 依次输入：
-> slmgr /ipk VK7JG-NPHTM-C97JM-9MPGT-3V66T  
-> slmgr /skms yy.us.to  
+- 依次输入： 
+> slmgr /skms kms.03k.org  
 > slmgr /ato  
-- 各版本秘钥
-  - 专业版：VK7JG-NPHTM-C97JM-9MPGT-3V66T
-  - 企业版：3KHY7-WNT83-DGQKR-F7HPR-844BM
-  - 家庭版：KN429-7YH9J-D3267-HYGJ9-H6DDV
 
 ## 实用的命令代码
 - 查询电脑系统配置：dxdiag
