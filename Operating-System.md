@@ -18,3 +18,10 @@
   - 专业版：VK7JG-NPHTM-C97JM-9MPGT-3V66T
   - 企业版：3KHY7-WNT83-DGQKR-F7HPR-844BM
   - 家庭版：KN429-7YH9J-D3267-HYGJ9-H6DDV
+
+## 实用的命令代码
+- 查询电脑系统配置：dxdiag
+- 远程链接他人电脑：mstsc
+- 打开电脑虚拟键盘：osk
+- 清理电脑磁盘垃圾：cleanmgr
+- 清理电脑C盘垃圾：%temp%
